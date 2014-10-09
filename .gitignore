@@ -1,3 +1,2 @@
-DIN
-.idea
-.DS_Store
+node_modules
+app/bundle.js

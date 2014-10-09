@@ -1,8 +1,7 @@
-Ibuildings OWASP ASVS Report Generator
-======================================
+# OWASP ASVS 2 Report Generator
 
-Generate an OWASP ASVS compliant report contents, to copy and paste in Word.
+Available online at [ibuildings.github.io/owasp-asvs-report-generator/](https://ibuildings.github.io/owasp-asvs-report-generator/).
 
-Note that this software is still in alpha.
+# Installing
 
-[Demo](http://ibuildingsnl.github.com/owasp-asvs-report-generator/index.html).
+Download the latest build from: 
