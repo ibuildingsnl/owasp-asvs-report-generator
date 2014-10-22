@@ -18,9 +18,9 @@ var Component = React.createClass({
         var requirement;
         for (var key in requirements) {
             requirement = requirements[key];
-            console.log(requirement);
             requirementElements.push(
-                <Requirement chapterNr={requirement.chapterNr}
+                <Requirement key={key}
+                             chapterNr={requirement.chapterNr}
                              nr={requirement.nr}
                              shortTitle={requirement.shortTitle['en']}
                              title={requirement.title['en']} />
@@ -28,7 +28,7 @@ var Component = React.createClass({
         }
 
         return (
-            <section class="requirement">
+            <section className="requirement">
                 {requirementElements}
             </section>
             );

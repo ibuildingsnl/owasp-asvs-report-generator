@@ -8,7 +8,7 @@ var Report = require('./ReportGenerator/Report.react.js');
 var RequirementList = require('./ReportGenerator/RequirementList.react.js');
 
 var asvsData = require('owasp-asvs');
-var aasvsData = require('owasp-asvs/src/aasvs.json');
+var aasvsData = require('owasp-aasvs');
 
 var ReportGenerator = React.createClass({
     getInitialState: function() {

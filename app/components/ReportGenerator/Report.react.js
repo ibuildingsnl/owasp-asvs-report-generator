@@ -3,54 +3,79 @@
  */
 
 var React = require('react');
+var ReportStore = require('../../stores/ReportStore');
+var ReportActionCreators = require('../../actions/ReportActionCreators');
+
+var ENTER_KEY_CODE = 13;
 
 var Component = React.createClass({
+    getInitialState: function() {
+        return ReportStore.get();
+    },
+
     render: function() {
         return (
             <section>
-                <p id="hello"></p>
                 <form>
                     <fieldset>
                         <label>Name</label>
-                        <input required />
+                        <input required onChange={this._onChange} onKeyDown={this._onKeyDown} value={this.state.name} />
                     </fieldset>
                     <fieldset>
                         <label>Version</label>
-                        <input />
+                        <input value={this.state.version} />
                     </fieldset>
                     <fieldset>
                         <label>Level</label>
-                        <select>
-                            <option>1</option>
-                            <option selected="selected">2</option>
-                            <option>3</option>
+                        <select defaultValue={ this.state.level }>
+                            <option value="1">Optimistic</option>
+                            <option value="2">Standard</option>
+                            <option value="3">Advanced</option>
                         </select>
-                        <input id="scope_plus" name="scope_plus" type="checkbox" />
+                        <input id="scope_plus" name="scope_plus" type="checkbox" defaultChecked={ this.state.levelPlus } />
                         <label htmlFor="scope_plus">+</label>
-                        </fieldset>
+                    </fieldset>
+                    <fieldset>
+                        <label>Target Of Verification (TOV)</label>
+                        <textarea value={ this.state.tov } />
+                    </fieldset>
+                    <fieldset>
+                        <label>Format</label>
+                        <select>
+                            <option defaultValue>Markdown</option>
+                            <option>Confluence</option>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+                        <label>Help</label>
                         <fieldset>
-                            <label>Target Of Verification (TOV)</label>
-                            <textarea></textarea>
+                            <input id="help_general" type="checkbox" defaultChecked />
+                            <label htmlFor="help_general">General</label>
+                            <input id="help_drupal_7" type="checkbox" />
+                            <label htmlFor="help_drupal_7">Drupal 7</label>
                         </fieldset>
-                        <fieldset>
-                            <label>Format</label>
-                            <select>
-                                <option selected>Markdown</option>
-                                <option>Confluence</option>
-                            </select>
-                        </fieldset>
-                        <fieldset>
-                            <label>Help</label>
-                            <fieldset>
-                                <input id="help_general" type="checkbox" checked="checked" />
-                                <label htmlFor="help_general">General</label>
-                                <input id="help_drupal_7" type="checkbox" />
-                                <label htmlFor="help_drupal_7">Drupal 7</label>
-                            </fieldset>
-                        </fieldset>
-                    </form>
-                </section>
+                    </fieldset>
+                </form>
+            </section>
             );
+    },
+
+    _onChange: function(event, value) {
+        this.setState({name: event.target.value});
+    },
+
+    _onKeyDown: function(event) {
+        if (event.keyCode !== ENTER_KEY_CODE) {
+            return;
+        }
+
+        event.preventDefault();
+
+        var text = this.state.name.trim();
+        if (text) {
+            ReportActionCreators.updateName(text);
+        }
+        this.setState({name: ''});
     }
 });
 
