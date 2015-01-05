@@ -1,7 +1,7 @@
-var React = require('react');
-var EventEmitter = require('events').EventEmitter;
-var merge = require('react/lib/merge');
-var ReportAppDispatcher = require('../dispatcher/ReportAppDispatcher');
+var React = require('react'),
+    EventEmitter = require('events').EventEmitter,
+    assign = require('react/lib/Object.assign'),
+    ReportAppDispatcher = require('../dispatcher/ReportAppDispatcher');
 
 var _report = {
     name: "",
@@ -28,7 +28,7 @@ var _report = {
     ]
 };
 
-var ReportStore = merge(EventEmitter.prototype, {
+var ReportStore = assign(EventEmitter.prototype, {
 
     emitChange: function() {
         this.emit(CHANGE_EVENT);

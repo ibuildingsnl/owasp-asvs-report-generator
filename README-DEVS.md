@@ -1,5 +1,5 @@
 # Building
 
 ```bash
-watchify -t reactify app/app.js -o app/bundle.js
+watchify -t reactify app/app.js -o www/report-generator.js
 ```

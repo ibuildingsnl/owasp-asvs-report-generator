@@ -1,5 +1,6 @@
-var ReportAppDispatcher = require('../dispatcher/ReportAppDispatcher');
-var ReportStore         = require('../stores/ReportStore');
+var ReportAppDispatcher      = require('../dispatcher/ReportAppDispatcher'),
+    ReportStore              = require('../stores/ReportStore'),
+    ReportGeneratorConstants = require('../constants/ReportGeneratorConstants');
 
 var ActionTypes = ReportGeneratorConstants.ActionTypes;
 
