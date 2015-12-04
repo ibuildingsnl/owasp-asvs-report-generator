@@ -1,4 +1,4 @@
-Ibuildings OWASP ASVS Report Generator
+Ibuildings OWASP ASVS v2.0 Report Generator
 ======================================
 
 Generate an OWASP ASVS compliant report contents, to copy and paste in Word.
